@@ -81,6 +81,20 @@ ul > li:before {
 	margin-left: -1.5em;
 }
 
+/* Remove ugly dashes from TOC, per Lori */
+#TOC > ul > li:before {
+    content: none;
+}
+
+#TOC > ul {
+    padding-left: 0;
+}
+
+/* Increase spacing between section number and section title in TOC */
+.toc-section-number {
+    margin-right: 0.5em;
+}
+
 :target { background-color: #C9FBC9; }
 :target .codeblock { background-color: #C9FBC9; }
 :target ul { background-color: #C9FBC9; }

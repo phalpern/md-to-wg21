@@ -82,7 +82,7 @@ ul > li:before {
 }
 
 /* Remove ugly dashes from TOC, per Lori */
-#TOC > ul > li:before {
+#TOC ul > li:before {
     content: none;
 }
 

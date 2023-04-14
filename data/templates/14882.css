@@ -29,11 +29,16 @@ div.wrapper {
 	margin: auto;
 }
 
+/* Equalize margins of ordered and unordered lists, per Lori */
 ul {
 	list-style-type: none;
-	padding-left: 2em;
+	padding-left: 2.5em;
 	margin-top: -0.2em;
 	margin-bottom: -0.2em;
+}
+
+ol {
+    padding-left: 2.5em;
 }
 
 a {

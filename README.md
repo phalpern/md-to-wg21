@@ -2,8 +2,11 @@
 
 ## Introduction
 
-This is a paper-writing framework designed to ease the pain of authoring papers
-for WG21, built on top of [Pandoc].
+**This is the Bloomberg-internal version of `wg21`. For instructions on using
+this version, see {TEAM 3219718960<GO>}.**
+
+The top-level of this repository contains the source code for various proposals
+and the `generated/` directory contains the generated proposals (HTML or PDF).
 
 In short, you write your papers in Markdown and the framework produces the paper
 either in HTML or PDF.
@@ -38,9 +41,9 @@ Debian installation may require these additional packages:
 ## Integration
 
 ```bash
-git submodule add https://github.com/mpark/wg21.git
+git submodule add https://github.com/t3nsor/mpark-wg21-internal.git
 
-echo "include wg21/Makefile" > Makefile
+echo "include mpark-wg21-internal/Makefile" > Makefile
 
 make <paper>.pdf  # `<paper>.md` -> `generated/<paper>.pdf`
 make <paper>.html # `<paper>.md` -> `generated/<paper>.html`

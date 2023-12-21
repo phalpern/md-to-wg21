@@ -65,6 +65,8 @@ def prepare(doc):
     doc.metadata['highlighting-css'] = pf.MetaBlocks(
         pf.RawBlock(highlighting('html'), 'html'))
 
+    doc.citation_footnote_issued = False
+
 def divspan(elem, doc):
     """
     Non-code diffs: `add` and `rm` are classes that can be added to
@@ -161,14 +163,21 @@ def divspan(elem, doc):
         target = pf.stringify(elem)
         name = target.split('#')[0]
         number = stable_names.get(name)
-        link = pf.Link(
-            pf.Str(f'[{target}]'),
-            url=f'https://wg21.link/{target}')
-        if number is not None:
-            return pf.Span(link) if 'unnumbered' in elem.classes else pf.Span(pf.Str(number), pf.Space(), link)
-        else:
+        if number is None:
             pf.debug('mpark/wg21: stable name', name, 'not found')
-            return link
+            return pf.Str(f'[{target}]')
+        wd = doc.get_metadata('working-draft')
+        trailing_content = []
+        if wd is None:
+            pf.debug('warning: specify "working-draft" to avoid link rot')
+            url = f'https://wg21.link/{target}'
+        else:
+            url = f'https://wg21.link/{wd}#{target}'
+            if not doc.citation_footnote_issued:
+                trailing_content = [pf.Note(pf.Para(pf.Str(f'All citations to the Standard are to working draft {wd} unless otherwise specified.')))]
+                doc.citation_footnote_issued = True
+        link = pf.Link(pf.Str(f'[{target}]'), url=url)
+        return pf.Span(pf.Str(number), pf.Space(), link, *trailing_content)
 
     note_cls = next(iter(cls for cls in elem.classes if cls in {'example', 'note', 'ednote', 'draftnote'}), None)
     if note_cls == 'example':  example()

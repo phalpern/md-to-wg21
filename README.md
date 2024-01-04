@@ -539,6 +539,13 @@ For example, `[expr.sizeof]{- .sref}` or `[expr.sizeof]{.unnumbered .sref}`
 
 > Run `make update` to update the local cache of `annex-f`.
 
+By default, the generated hyperlink will go to the latest version of the
+working draft at the time when the reader clicks on it. Thus, such links are
+not truly stable, and may gradually become stale. To make generated hyperlinks
+go to a *specific* mailed working draft, you can add `working-draft: Nxxxx` to
+the metadata block at the beginning of the document, where `Nxxxx` is `N4971`
+or later.
+
 ### Citations
 
 In-text citations look like this: `[@id]`

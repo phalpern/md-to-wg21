@@ -7,7 +7,7 @@ body {
 		   from surrounding text by virtue of being sans serif. */
 	hyphens: auto;
 	line-height: 1.35;
-	text-align: justify;
+	text-align: left;
 		/* Some browsers, particularly mobile Safari, implement text inflation
 		   algorithms intended to improve readability of text on small display
 		   sizes. This interacts badly with papers because it can lead to
@@ -170,8 +170,8 @@ a.enumerated_item_num {
 	width: 3em;
 }
 
-div.para { margin-bottom: 0.6em; margin-top: 0.6em; text-align: justify; }
-div.section { text-align: justify; }
+div.para { margin-bottom: 0.6em; margin-top: 0.6em; text-align: left; }
+div.section { text-align: left; }
 div.sentence { display: inline; }
 
 span.indexparent {

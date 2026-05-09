@@ -2,8 +2,9 @@
 
 ## Introduction
 
-**This is the Bloomberg-internal version of `wg21`. For instructions on using
-this version, see {TEAM 3219718960<GO>}.**
+**This is Brian Bi's fork of `mpark/wg21`.**
+Bloomberg developers can find additional instructions on using
+this version, at {TEAM 3219718960<GO>}.
 
 The top-level of this repository contains the source code for various proposals
 and the `generated/` directory contains the generated proposals (HTML or PDF).
@@ -41,9 +42,10 @@ Debian installation may require these additional packages:
 ## Integration
 
 ```bash
-git submodule add https://github.com/t3nsor/mpark-wg21-internal.git
+git submodule add https://github.com/<github-fork-name> md-to-wg21
+ # E.g., git submodule add https://github.com/mpark/wg21.git md-to-wg21
 
-echo "include mpark-wg21-internal/Makefile" > Makefile
+echo "include  md-to-wg21/Makefile" > Makefile
 
 make <paper>.pdf  # `<paper>.md` -> `generated/<paper>.pdf`
 make <paper>.html # `<paper>.md` -> `generated/<paper>.html`
